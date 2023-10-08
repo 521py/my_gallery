@@ -6,6 +6,8 @@ import {
 import { useState } from "react";
 // import AsyncSelect from "react-select/async";
 import SomeSelectAuthor from "./SomeSelectAuthor";
+import SomeSelectAuthor2 from "./SomeSelectAuthor2";
+import SomeSelectLocation from "./SomeSelectLocation";
 
 const queryClient = new QueryClient();
 
@@ -14,7 +16,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <NamedSearch />
       <SomeSelectAuthor />
-      <SomeSelectAuthor />
+      <SomeSelectAuthor2 />
+      <SomeSelectLocation />
       <Example />
     </QueryClientProvider>
   );
