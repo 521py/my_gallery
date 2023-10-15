@@ -4,7 +4,7 @@ import axios, { HttpStatusCode } from "axios";
 
 const baseUrl = "https://test-front.framework.team";
 
-export default class SomeSelectAuthor extends Component {
+export default class SomeSelectAuthor2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +15,7 @@ export default class SomeSelectAuthor extends Component {
   }
 
   async getOptions() {
-    const res = await axios.get(baseUrl + "/paintings").catch(function (error) {
+    const res = await axios.get(baseUrl + "/authors").catch(function (error) {
       if (error.response) {
         console.log(error.response.data);
         console.log(error.response.status);
@@ -31,11 +31,10 @@ export default class SomeSelectAuthor extends Component {
 
     const options = data.map((d) => ({
       value: d.id,
-      label: d.authorId,
-      year: d.created,
-      img: d.imageUrl,
+      label: d.name,
     }));
 
+    // console.log(options);
     this.setState({ selectOptions: options });
   }
 
@@ -43,16 +42,12 @@ export default class SomeSelectAuthor extends Component {
     if (e) {
       this.setState({
         id: e.value,
-        authorId: e.label,
-        year: e.year,
-        img: baseUrl + e.img,
+        name: e.label,
       });
     } else if (!e) {
       this.setState({
         id: "",
-        authorId: "",
-        year: "",
-        img: "",
+        name: "",
       });
     }
   }
@@ -63,12 +58,7 @@ export default class SomeSelectAuthor extends Component {
 
   render() {
     // console.log(this.state.selectOptions);
-    console.log(
-      "this.state.id/authorId/year is",
-      this.state.id,
-      this.state.authorId,
-      this.state.year
-    );
+    console.log("authorId is ", this.state.id);
     return (
       <div style={{ width: "300px", margin: "10px" }}>
         <Select
@@ -80,10 +70,7 @@ export default class SomeSelectAuthor extends Component {
         {this.state.value === null && HttpStatusCode >= 200 ? (
           ""
         ) : (
-          <img
-            style={{ width: "150px", marginTop: "15px" }}
-            src={this.state.img}
-          />
+          <p>{this.state.name}</p>
         )}
       </div>
     );
