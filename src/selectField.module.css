@@ -4,7 +4,7 @@
 }
 
 .Paints {
-  /* background-color: green; */
+  background-color: green;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 20px 90px;
@@ -17,6 +17,8 @@
   color: magenta;
   margin: 20px 90px;
   max-height: 90px;
+  gap: 10px;
+  padding: 0;
 }
 
 .selector {
@@ -35,7 +37,7 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-radius: 6px;
-  padding: 0px 11px;
+  /* padding: 0px 11px; */
   margin: 0;
   margin-block-start: 0;
   box-sizing: border-box;
@@ -46,6 +48,8 @@
   height: 42.1px;
   max-height: 42.1px;
   min-width: 150px;
+
+  display: grid;
 }
 
 .selectField:hover {
@@ -170,12 +174,14 @@ input[type="number"] {
 
 .optionTag {
   padding: 10px 15px 15px 15px;
+  z-index: 5;
+  background-color: yellow;
 }
 
 .optionTag:hover {
   background-color: black;
   color: white;
-  z-index: 1;
+  z-index: 5;
   list-style: none;
   outline: none;
 }
@@ -192,7 +198,7 @@ input[type="number"] {
   width: fit-content;
   height: 42.1px;
   display: flex;
-  margin: 0 90px;
+  margin: 0;
   list-style: none;
   align-items: center;
   justify-content: flex-start;
@@ -204,9 +210,6 @@ input[type="number"] {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   border-left: 1px solid black;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  /* margin-left: ; */
 }
 
 .previousPaginate:hover {
@@ -215,12 +218,7 @@ input[type="number"] {
 
 .nextPaginate {
   padding: 7px 12px;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
-  border-left: 1px solid black;
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border: 1px solid black;
 }
 
 .nextPaginate:hover {
@@ -255,19 +253,17 @@ input[type="number"] {
 }
 
 .mainDiv {
-  /* width: 50px; */
   height: 42.1px;
-  /* display: flow-root; */
-  margin: 0 90px;
   list-style: none;
   align-items: center;
   justify-content: flex-start;
   padding: 0;
-  background-color: crimson;
-  /* position: relative; */
   display: flex;
-  justify-content: space-between;
-  line-height: 34px;
+  justify-content: start;
+  margin-right: auto;
+  margin-left: 90px;
+
+  z-index: 9;
 }
 
 .lessThan {
@@ -277,6 +273,56 @@ input[type="number"] {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   margin: 0;
+  padding: 7px 7.2px;
+  color: whitesmoke;
+}
+
+.lessThan:hover {
+  color: whitesmoke !important;
+}
+
+.lessThan2 {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  margin: 0;
+  padding: 7px 7.2px;
+  color: black;
+}
+
+.lessThan2:hover {
+  color: whitesmoke !important;
+}
+
+.moreThan {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin: 0;
+  padding: 7px 7.2px;
+}
+
+.moreThan:hover {
+  color: whitesmoke !important;
+}
+
+.moreThan2 {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin: 0;
+  padding: 7px 7.2px;
+  color: whitesmoke;
+}
+
+.moreThan2:hover {
+  color: whitesmoke !important;
 }
 
 @media (max-width: 1366px) {
@@ -306,12 +352,17 @@ input[type="number"] {
     margin-right: auto;
     align-items: center;
     justify-content: center;
-    width: 75%;
+    width: 250px;
   }
 
   .containerPaginate {
     justify-content: center;
-    margin-left: auto;
+    margin: 0;
+  }
+
+  .mainDiv {
     margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
   }
 }

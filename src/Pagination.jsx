@@ -1,4 +1,12 @@
+import {
+  faAngleLeft,
+  faAngleRight,
+  faAnglesLeft,
+  faAnglesRight,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useQuery } from "@tanstack/react-query";
+import { useRef } from "react";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,14 +14,36 @@ import { getCurrentPage, setCurrentPage } from "./redux/slices/filterSlice";
 import classes from "./selectField.module.css";
 
 export const Pagination = () => {
+  const refLastPage = useRef();
+  const refFirstPage = useRef();
+  const refReactPaginate = useRef();
   const [isArray, setIsArray] = useState([]);
 
   const currentPage = useSelector(getCurrentPage);
   const dispatch = useDispatch();
 
   const onPageChange = ({ selected }) => {
-    console.log(1);
+    console.log("this page was changed");
     dispatch(setCurrentPage(selected + 1));
+
+    console.log(selected + 1);
+    if (selected + 1 === 1) {
+      // refLastPage.current.className = `${classes.moreThan}`;
+      // refFirstPage.current.className = `${classes.lessThan2}`;
+      refLastPage.current.style.color = "black";
+      refFirstPage.current.style.color = "whitesmoke";
+    } else if (selected + 1 === pageCount) {
+      // refLastPage.current.className = `${classes.moreThan2}`;
+      // refFirstPage.current.className = `${classes.lessThan}`;
+      refLastPage.current.style.color = "whitesmoke";
+      refFirstPage.current.style.color = "black";
+      // refReactPaginate.current.disabledClassName = `${classes.nextPaginate2}`;
+    } else if (selected + 1 !== 1 && selected + 1 !== pageCount) {
+      // refLastPage.current.className = `${classes.moreThan}`;
+      // refFirstPage.current.className = `${classes.lessThan2}`;
+      refLastPage.current.style.color = "black";
+      refFirstPage.current.style.color = "black";
+    }
   };
 
   const { data, isLoading, isError, error } = useQuery({
@@ -22,7 +52,7 @@ export const Pagination = () => {
       fetch(`https://test-front.framework.team/paintings/`).then((res) =>
         res.json().then((data) => {
           setIsArray(data);
-          return 1;
+          return 2;
         })
       ),
   });
@@ -34,13 +64,33 @@ export const Pagination = () => {
 
   const pageCount = Math.ceil(isArray.length / 12);
 
+  const onClickFirstPage = () => {
+    dispatch(setCurrentPage(1));
+    refLastPage.current.style.color = "black";
+    refFirstPage.current.style.color = "whitesmoke";
+  };
+
+  const onClickLastPage = () => {
+    dispatch(setCurrentPage(Math.ceil(isArray.length / 12)));
+    refLastPage.current.style.color = "whitesmoke";
+    refFirstPage.current.style.color = "black";
+  };
+
   return (
     <>
       <div className={`${classes.mainDiv}`}>
-        <a className={`${classes.lessThan}`}>&lt;&lt;</a>
+        <div
+          ref={refFirstPage}
+          className={`${classes.lessThan}`}
+          onClick={onClickFirstPage}
+        >
+          <FontAwesomeIcon icon={faAnglesLeft} />
+        </div>
+
         <ReactPaginate
-          nextLabel=">"
-          previousLabel="<"
+          ref={refReactPaginate}
+          nextLabel={<FontAwesomeIcon icon={faAngleRight} />}
+          previousLabel={<FontAwesomeIcon icon={faAngleLeft} />}
           pageCount={pageCount}
           forcePage={currentPage - 1}
           onPageChange={onPageChange}
@@ -51,7 +101,13 @@ export const Pagination = () => {
           activeClassName={`${classes.activePaginate}`}
           pageLinkClassName={`${classes.allPagesPaginate}`}
         />
-        <div>&gt;&gt;</div>
+        <div
+          ref={refLastPage}
+          className={`${classes.moreThan}`}
+          onClick={onClickLastPage}
+        >
+          <FontAwesomeIcon icon={faAnglesRight} />
+        </div>
       </div>
     </>
   );
