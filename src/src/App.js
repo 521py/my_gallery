@@ -7,7 +7,7 @@ import { Paints } from "./Paints";
 import { Pagination } from "./Pagination";
 import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleArrowDown, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faSun } from "@fortawesome/free-regular-svg-icons";
 
 const queryClient = new QueryClient({
   defaultOptions: {

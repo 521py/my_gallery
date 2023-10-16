@@ -86,10 +86,12 @@ export default function MySearch2() {
   const onClickSelectFieldRange = () => {
     if (refInputRanges.current.hidden === true) {
       refInputRanges.current.hidden = false;
+      refInputRanges.current.className = `${classes.specialRangeContainer}`;
       refDownRange.current.hidden = true;
       refUpRange.current.hidden = false;
     } else if (refInputRanges.current.hidden === false) {
       refInputRanges.current.hidden = true;
+      refInputRanges.current.className = ``;
       refDownRange.current.hidden = false;
       refUpRange.current.hidden = true;
     }
@@ -134,7 +136,8 @@ export default function MySearch2() {
       <div
         ref={refInputRanges}
         hidden={isHidden}
-        className={`${classes.specialRangeContainer}`}
+        // className={`${classes.specialRangeContainer}`}
+        // onClick={}
       >
         <input
           type="number"

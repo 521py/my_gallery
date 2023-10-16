@@ -30,11 +30,11 @@ export const Paints = () => {
   return (
     <>
       <div className={`${classes.Paints}`}>
-        {data.map((d, i) => (
+        {/* {data.map((d, i) => (
           <div key={d.id}>
             <p>{d.name} ✅</p>
           </div>
-        ))}
+        ))} */}
       </div>
     </>
   );

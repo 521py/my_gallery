@@ -26,6 +26,8 @@ export const TodoList = () => {
   const refUp2 = useRef();
   const refDown = useRef();
   const refDown2 = useRef();
+  const refElInFlexContainer1 = useRef();
+  const refElInFlexContainer2 = useRef();
 
   console.log("render todo list!");
 
@@ -72,11 +74,13 @@ export const TodoList = () => {
       refClose.current.hidden = false;
       refDown.current.hidden = true;
       refUp.current.hidden = false;
+      refElInFlexContainer1.current.style.borderBottom = `1px solid black`;
     } else if (select1Ref.current.hidden === false) {
       setIsFalse(true);
       refClose.current.hidden = true;
       refDown.current.hidden = false;
       refUp.current.hidden = true;
+      refElInFlexContainer1.current.style.borderBottom = `none`;
     }
   };
 
@@ -86,11 +90,13 @@ export const TodoList = () => {
       refClose2.current.hidden = false;
       refDown2.current.hidden = true;
       refUp2.current.hidden = false;
+      refElInFlexContainer2.current.style.borderBottom = `1px solid black`;
     } else if (select2Ref.current.hidden === false) {
       setIsFalse2(true);
       refClose2.current.hidden = true;
       refDown2.current.hidden = false;
       refUp2.current.hidden = true;
+      refElInFlexContainer2.current.style.borderBottom = `none`;
     }
   };
 
@@ -124,7 +130,11 @@ export const TodoList = () => {
 
       <div className={`${classes.flexContainer}`}>
         <div className={`${classes.middleFlexElement}`}>
-          <div onClick={onCLickDown} className={`${classes.elInFlexContainer}`}>
+          <div
+            ref={refElInFlexContainer1}
+            onClick={onCLickDown}
+            className={`${classes.elInFlexContainer}`}
+          >
             <p>{isAuthor}</p>
 
             <div className={`${classes.faDivs}`}>
@@ -177,7 +187,11 @@ export const TodoList = () => {
       </div>
 
       <div className={`${classes.flexContainer}`}>
-        <div onClick={onCLickDown2} className={`${classes.elInFlexContainer}`}>
+        <div
+          ref={refElInFlexContainer2}
+          onClick={onCLickDown2}
+          className={`${classes.elInFlexContainer}`}
+        >
           <p>{isLocation}</p>
           <div className={`${classes.faDivs}`}>
             <div ref={refClose2} hidden>
