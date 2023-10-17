@@ -1,0 +1,444 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.Paints {
+  /* background-color: green; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px 8%;
+}
+
+.header1 {
+  margin: 20px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9;
+  font-size: xx-large;
+  padding: 0 10px;
+}
+
+.header2 {
+  margin: 20px 8%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 9;
+  height: 7%;
+}
+
+.flexContainerForInput {
+  margin: 0 10px;
+  width: 300px;
+  max-width: 300px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  min-height: 48px;
+  min-width: 40px;
+  cursor: pointer;
+}
+
+.flexContainerForInput input {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.flexContainer {
+  margin: 0 10px;
+  width: 300px;
+  max-width: 300px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  min-height: 48px;
+  min-width: 40px;
+  max-height: 400px;
+  overflow-y: scroll;
+  cursor: pointer;
+}
+
+.flexContainer span {
+  margin: 0;
+
+  font-size: smaller;
+}
+
+.middleFlexElement {
+  background-color: white;
+
+  height: fit-content;
+  max-height: 50px;
+  border-radius: 10px;
+}
+
+.elInFlexContainer {
+  width: 100%;
+  height: 48px;
+  max-height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.elInFlexContainer p {
+  white-space: nowrap;
+  width: 199px;
+  width: 93%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 10px;
+}
+
+.specialRangeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  /* visibility: hidden; */
+}
+
+::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration {
+  display: none;
+}
+
+.inputRange {
+  background-color: whitesmoke;
+  color: gray;
+  font-size: smaller;
+  border: none;
+  border-radius: 10px;
+  padding: 0 11px;
+  margin: 5px;
+  cursor: pointer;
+  height: 42.1px;
+  max-height: 42.1px;
+  outline: none;
+  width: 70px;
+}
+
+.inputRange:focus {
+  color: black;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.faDivs {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.options {
+  width: 100%;
+  padding: 0 15px;
+  list-style: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.selectTagAfterClickHide {
+  height: 0;
+}
+
+.optionTag {
+  padding: 10px 15px 15px 15px;
+  background-color: white;
+}
+
+.optionTag:hover {
+  background-color: black;
+  color: white;
+  list-style: none;
+  outline: none;
+}
+
+.optionTag:checked,
+.optionTag:checked:hover,
+.optionTag::selection {
+  background-color: black;
+  color: white;
+  outline: none;
+}
+
+.containerPaginate {
+  width: fit-content;
+  height: 42.1px;
+  display: flex;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.previousPaginate {
+  padding: 7px 12px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.previousPaginate:hover {
+  color: whitesmoke;
+}
+
+.nextPaginate {
+  padding: 7px 12px;
+  border: 1px solid black;
+}
+
+.nextPaginate:hover {
+  color: whitesmoke;
+}
+
+.activePaginate {
+  background-color: black;
+  color: white;
+  line-height: 34px;
+}
+
+.allPagesPaginate {
+  padding: 7px 12px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.allPagesPaginate:hover:not(.activePaginate) {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.activePaginate:hover {
+  background-color: black;
+}
+
+.disabledPaginate {
+  line-height: 34px;
+  color: whitesmoke !important;
+}
+
+.mainDiv {
+  height: 42.1px;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  display: flex;
+  justify-content: start;
+  margin-right: auto;
+  margin-left: 8%;
+}
+
+.lessThan {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+  color: whitesmoke;
+}
+
+.lessThan:hover {
+  color: whitesmoke !important;
+}
+
+.lessThan2 {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+  color: black;
+}
+
+.lessThan2:hover {
+  color: whitesmoke !important;
+}
+
+.moreThan {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+}
+
+.moreThan:hover {
+  color: whitesmoke !important;
+}
+
+.moreThan2 {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+  color: whitesmoke;
+}
+
+.moreThan2:hover {
+  color: whitesmoke !important;
+}
+
+.card {
+  margin: 10px;
+  height: 250px;
+  overflow: hidden;
+  /* width: 350px; */
+}
+
+.cardImg {
+  float: left;
+  width: 350px;
+  max-width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.intro {
+  height: 30px;
+  /* min-width: 250px; */
+  width: 100%;
+  max-width: 350px;
+  padding: 6px;
+  box-sizing: border-box;
+  position: relative;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-top: 220px;
+  font-size: x-small;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.intro h2 {
+  min-width: min-content;
+
+  position: absolute;
+  margin: 0 0 0 0;
+  padding: 0 0 0 10px;
+
+  text-overflow: ellipsis;
+  padding-right: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.intro p {
+  margin: 5px 10px;
+
+  overflow: hidden;
+}
+
+@media (max-width: 1365px) {
+  .specialRangeContainer {
+    display: grid;
+  }
+  .specialRangeContainer span {
+    margin-left: 45%;
+  }
+  .cardImg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .header {
+    flex-direction: row;
+  }
+  .Paints {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flexContainer input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  .cardImg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    min-height: 300px;
+    align-items: center;
+    margin: 0;
+  }
+
+  .Paints {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+  }
+
+  .containerPaginate {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .mainDiv {
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+  }
+
+  .header2 {
+    display: grid;
+    gap: 1vh;
+  }
+  .specialRangeContainer {
+    display: flex;
+  }
+
+  .specialRangeContainer span {
+    margin-left: 0;
+  }
+
+  .card {
+    margin: 20px 0px;
+  }
+
+  .cardImg {
+    width: 300px;
+  }
+}
