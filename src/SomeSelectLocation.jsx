@@ -10,34 +10,31 @@ export default class SomeSelectLocation extends Component {
     this.state = {
       selectOptions: [],
       id: "",
-      name: "",
+      location: "",
     };
   }
 
   async getOptions() {
-    const res = await axios
-      .get("https://test-front.framework.team/paintings")
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log("Error", error.message);
-        }
-        console.log(error.config);
-      });
+    const res = await axios.get(baseUrl + "/locations").catch(function (error) {
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log("Error", error.message);
+      }
+      console.log(error.config);
+    });
     const data = res.data;
 
     const options = data.map((d) => ({
       value: d.id,
-      label: d.authorId,
-      year: d.created,
-      img: d.imageUrl,
+      label: d.location,
     }));
 
+    // console.log(options);
     this.setState({ selectOptions: options });
   }
 
@@ -45,17 +42,12 @@ export default class SomeSelectLocation extends Component {
     if (e) {
       this.setState({
         id: e.value,
-        label: e.value,
-        name: e.label,
-        year: e.year,
-        img: baseUrl + e.img,
+        location: e.label,
       });
     } else if (!e) {
       this.setState({
         id: "",
-        name: "",
-        year: "",
-        img: "",
+        location: "",
       });
     }
   }
@@ -66,29 +58,16 @@ export default class SomeSelectLocation extends Component {
 
   render() {
     // console.log(this.state.selectOptions);
-    console.log(
-      "this.state.id/label/name/year is",
-      this.state.id,
-      this.state.label,
-      this.state.name,
-      this.state.year
-    );
+    console.log("LOCATION ID IS", this.state.id);
     return (
       <div style={{ width: "300px", margin: "10px" }}>
         <Select
           options={this.state.selectOptions}
           onChange={this.handleChange.bind(this)}
-          placeholder="Author"
+          placeholder="Location"
           isClearable={true}
         />
-        {this.state.value === null && HttpStatusCode >= 200 ? (
-          ""
-        ) : (
-          <img
-            style={{ width: "150px", marginTop: "15px" }}
-            src={this.state.img}
-          />
-        )}
+        {HttpStatusCode >= 200 ? "" : <p>{this.state.location}</p>}
       </div>
     );
   }
