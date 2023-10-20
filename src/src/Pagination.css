@@ -1,0 +1,197 @@
+.containerPaginate {
+  width: fit-content;
+  height: 42.1px;
+  display: flex;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  cursor: pointer;
+}
+
+.containerPaginateDark {
+  /* background-color: blueviolet; */
+  width: fit-content;
+  height: 42.1px;
+  display: flex;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  cursor: pointer;
+  color: lightgray;
+}
+
+.previousPaginate {
+  padding: 7px 12px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+}
+
+.previousPaginate:hover {
+  color: whitesmoke;
+}
+
+.previousPaginateDark {
+  padding: 7px 12px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.previousPaginateDark:hover {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.nextPaginate {
+  padding: 7px 12px;
+  border: 1px solid gray;
+}
+
+.nextPaginate:hover {
+  color: whitesmoke;
+}
+
+.nextPaginateDark {
+  padding: 7px 12px;
+  border: 1px solid white;
+}
+
+.nextPaginateDark:hover {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.activePaginate {
+  background-color: black;
+  color: white;
+  line-height: 34px;
+}
+
+.activePaginate:hover {
+  background-color: black;
+  color: white;
+  line-height: 34px;
+}
+
+.activePaginateDark {
+  background-color: white;
+  color: black;
+  line-height: 34px;
+}
+
+.activePaginateDark:hover {
+  background-color: white;
+  color: black;
+  line-height: 34px;
+}
+
+.allPagesPaginate {
+  padding: 7px 12px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+}
+
+.allPagesPaginate:hover:not(.activePaginate) {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.allPagesPaginateDark {
+  padding: 7px 12px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+}
+
+.allPagesPaginateDark:hover:not(.activePaginateDark) {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: lightgray;
+}
+
+.activePaginate:hover {
+  background-color: black;
+}
+
+.activePaginateDark:hover {
+  background-color: white;
+  color: blueviolet;
+}
+
+.disabledPaginate {
+  line-height: 34px;
+  color: whitesmoke !important;
+}
+
+.disabledPaginateDark {
+  line-height: 34px;
+  color: whitesmoke;
+}
+
+.lessThan {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.lessThan:hover {
+  color: whitesmoke !important;
+}
+
+.lessThanDark {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+  color: lightgray;
+  cursor: pointer;
+}
+
+.lessThanDark:hover {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.moreThan {
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+  cursor: pointer;
+  color: black;
+}
+
+.moreThan:hover {
+  color: whitesmoke !important;
+}
+
+.moreThanDark {
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 0;
+  padding: 7px 7.2px;
+  cursor: pointer;
+  /* color: magenta; */
+  color: lightgray;
+}
+
+.moreThanDark:hover {
+  color: rgba(255, 255, 255, 0.3) !important;
+}

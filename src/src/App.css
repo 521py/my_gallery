@@ -1,0 +1,41 @@
+@import "/src/styles.module.css";
+
+body {
+  background-color: transparent;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.light {
+  background-color: white;
+  color: black;
+}
+
+.light p {
+  color: black;
+}
+
+/* .light a {
+  color: red;
+} */
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.dark p {
+  color: white;
+}
+
+.dark .optionTag:hover {
+  background-color: yellowgreen;
+  color: gray;
+}
+
+/* .dark a {
+  color: pink;
+} */
