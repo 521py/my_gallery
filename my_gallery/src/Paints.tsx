@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 import {
   getCurrentPage,
   getSearchRangeSelector,
@@ -40,7 +41,7 @@ export function Paints() {
     data: paints, isLoading, isError, error,
   } = useQuery<IPaint[]>({
     queryKey: getQueryKey(search.toString(), rangeStart, rangeEnd, currentPage),
-    queryFn: () => fetch(url).then((res) => res.json()),
+    queryFn: () => axios(url).then((res) => res.data),
   });
 
   if (isLoading) return <p>Loading...</p>;

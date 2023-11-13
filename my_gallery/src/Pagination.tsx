@@ -12,6 +12,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 import { getCurrentPage, setCurrentPage } from './redux/slices/filterSlice.ts';
 import { getCurrentTheme } from './redux/slices/themeSlice.ts';
 import classes from './styles.module.css';
@@ -38,10 +39,10 @@ export function Pagination() {
 
   const { isLoading, isError, error } = useQuery({
     queryKey: ['GET_ARRAY_LENGTH'],
-    queryFn: () => fetch('https://test-front.framework.team/paintings/').then((res) => res.json().then((data) => {
-      setIsArray(data);
+    queryFn: () => axios('https://test-front.framework.team/paintings/').then((response) => {
+      setIsArray(response.data);
       return 2;
-    })),
+    }),
   });
 
   if (isLoading) return <p>Loading...</p>;
