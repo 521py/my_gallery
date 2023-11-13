@@ -1,5 +1,6 @@
 {
   "name": "my_gallery",
+  "homepage": "https://521py.github.io/my_gallery/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
