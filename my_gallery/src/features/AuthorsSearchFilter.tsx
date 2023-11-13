@@ -10,6 +10,7 @@ import {
   faCaretUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import { getCurrentTheme } from '../redux/slices/themeSlice.ts';
 import { getSearchAuthorIdSelector } from '../redux/slices/filterSlice.ts';
 import { getQueryKeyForAuthorId } from '../utils.ts';
@@ -41,9 +42,7 @@ function AuthorsSearchFilter() {
     error: authorError,
   } = useQuery<IAuthor[]>({
     queryKey: getQueryKeyForAuthorId(authorId),
-    queryFn: () => fetch(`https://test-front.framework.team/authors/${authorId}`).then(
-      (res) => res.json(),
-    ),
+    queryFn: () => axios(`https://test-front.framework.team/authors/${authorId}`).then((res) => res.data),
   });
 
   if (isAuthorLoading) return <p>Loading authors...</p>;

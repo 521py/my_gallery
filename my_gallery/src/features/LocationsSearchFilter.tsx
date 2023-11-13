@@ -10,6 +10,7 @@ import {
   faCaretUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 import { getCurrentTheme } from '../redux/slices/themeSlice.ts';
 import classes from '../styles.module.css';
 import '../MySearch2.css';
@@ -38,7 +39,7 @@ function LocationsSearchFilter() {
     error: locationsError,
   } = useQuery<ILocation[]>({
     queryKey: ['GET_ALL_LOCATIONS'],
-    queryFn: () => fetch('https://test-front.framework.team/locations/').then((res) => res.json()),
+    queryFn: () => axios('https://test-front.framework.team/locations/').then((res) => res.data),
   });
 
   if (isLoading3) return <p>Loading loc...</p>;
