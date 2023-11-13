@@ -2,7 +2,7 @@ export const getQueryKey = (
   search: string,
   rangeStart: string,
   rangeEnd: string,
-  currentPage: string
+  currentPage: number | string,
 ) => ['GET_ALL_TODOS', search, rangeStart, rangeEnd, currentPage];
 
 export const getQueryKeyForAuthorId = (authorId: string) => [

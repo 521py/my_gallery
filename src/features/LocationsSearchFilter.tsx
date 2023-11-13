@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useQuery } from '@tanstack/react-query';
 import { MouseEvent, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -7,12 +9,12 @@ import {
   faXmark,
   faCaretUp,
 } from '@fortawesome/free-solid-svg-icons';
-import { getCurrentTheme } from '../redux/slices/themeSlice';
+import { v4 as uuidv4 } from 'uuid';
+import { getCurrentTheme } from '../redux/slices/themeSlice.ts';
 import classes from '../styles.module.css';
 import '../MySearch2.css';
 
 function LocationsSearchFilter() {
-
   const theme = useSelector(getCurrentTheme);
 
   const [isFalse2, setIsFalse2] = useState(true);
@@ -23,8 +25,6 @@ function LocationsSearchFilter() {
   const refUp2 = useRef<HTMLDivElement>(null);
   const refDown2 = useRef<HTMLDivElement>(null);
   const refElInFlexContainer2 = useRef<HTMLDivElement>(null);
-
-  console.log('render todo list!');
 
   interface ILocation {
     id: number,
@@ -38,14 +38,19 @@ function LocationsSearchFilter() {
     error: locationsError,
   } = useQuery<ILocation[]>({
     queryKey: ['GET_ALL_LOCATIONS'],
-    queryFn: () =>
-      fetch(`https://test-front.framework.team/locations/`).then((res) =>
-        res.json()
-      ),
+    queryFn: () => fetch('https://test-front.framework.team/locations/').then((res) => res.json()),
   });
 
   if (isLoading3) return <p>Loading loc...</p>;
-  if (isLocationsError) return <p>Error from loc req is {locationsError.toString()}</p>;
+  if (isLocationsError) {
+    return (
+      <p>
+        Error from loc req is
+        {' '}
+        {locationsError.toString()}
+      </p>
+    );
+  }
 
   const onCLickDown2 = () => {
     if (select2Ref.current?.hidden) {
@@ -53,13 +58,13 @@ function LocationsSearchFilter() {
       if (refClose2.current) refClose2.current.hidden = false;
       if (refDown2.current) refDown2.current.hidden = true;
       if (refUp2.current) refUp2.current.hidden = false;
-      if (refElInFlexContainer2.current) refElInFlexContainer2.current.style.borderBottom = `1px solid gray`;
+      if (refElInFlexContainer2.current) refElInFlexContainer2.current.style.borderBottom = '1px solid gray';
     } else if (!select2Ref.current?.hidden) {
       setIsFalse2(true);
       if (refClose2.current) refClose2.current.hidden = true;
       if (refDown2.current) refDown2.current.hidden = false;
       if (refUp2.current) refUp2.current.hidden = true;
-      if (refElInFlexContainer2.current) refElInFlexContainer2.current.style.borderBottom = `none`;
+      if (refElInFlexContainer2.current) refElInFlexContainer2.current.style.borderBottom = 'none';
     }
   };
 
@@ -118,17 +123,18 @@ function LocationsSearchFilter() {
         className={`${classes.selectTag}`}
         hidden={isFalse2}
       >
-        {locations?.map((location, i) => (
+        {locations?.map((location) => (
           <div
             onClick={onClick2}
-            key={i}
-            className={`optionTag` + (theme === `light` ? `` : `Dark`)}
+            key={uuidv4()}
+            className={`optionTag${theme === 'light' ? '' : 'Dark'}`}
           >
             {location.location}
           </div>
         ))}
       </div>
-    </div>);
+    </div>
+  );
 }
 
 export default LocationsSearchFilter;

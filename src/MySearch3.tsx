@@ -1,16 +1,18 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { ChangeEvent, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   changeSearchRange,
   changeSearchRangeEnd,
   getSearchRangeSelector,
   getSearchRangeSelectorEnd,
   getSearchSelector,
-} from './redux/slices/filterSlice';
+} from './redux/slices/filterSlice.ts';
 import classes from './styles.module.css';
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function MySearch3() {
   const isCreated = 'Created';
@@ -43,13 +45,11 @@ export default function MySearch3() {
   const changeSearchHandlerRangeStart = (e: ChangeEvent) => {
     const newSearchValue = (e.target as HTMLInputElement).value;
     setSearch(newSearchValue);
-    setSearchParams(() => {
-      return {
-        q: searchValue ?? '',
-        created_gte: newSearchValue,
-        created_lte: rangeEnd ?? '2023',
-      };
-    });
+    setSearchParams(() => ({
+      q: searchValue.toString() ?? '',
+      created_gte: newSearchValue,
+      created_lte: rangeEnd ?? '2023',
+    }));
     dispatch(changeSearchRange(newSearchValue));
   };
 
@@ -57,13 +57,11 @@ export default function MySearch3() {
     const newSearchValue = (e.target as HTMLInputElement).value;
 
     setSearch2(newSearchValue);
-    setSearchParams(() => {
-      return {
-        q: searchValue ?? '',
-        created_gte: rangeStart ?? '0',
-        created_lte: newSearchValue,
-      };
-    });
+    setSearchParams(() => ({
+      q: searchValue.toString() ?? '',
+      created_gte: rangeStart ?? '0',
+      created_lte: newSearchValue,
+    }));
     dispatch(changeSearchRangeEnd(newSearchValue));
   };
 
@@ -72,8 +70,6 @@ export default function MySearch3() {
     refDownRange.current.hidden = true;
     refUpRange.current.hidden = false;
     setIsHidden(false);
-    console.log('r1');
-
   };
 
   const onClickUpRange = () => {
@@ -81,7 +77,6 @@ export default function MySearch3() {
     refDownRange.current.hidden = false;
     refUpRange.current.hidden = true;
     setIsHidden(true);
-    console.log('r2');
   };
 
   const onClickSelectFieldRange = () => {
@@ -93,7 +88,7 @@ export default function MySearch3() {
       refUpRange.current.hidden = false;
     } else if (!refInputRanges.current.hidden) {
       refInputRanges.current.hidden = true;
-      refInputRanges.current.className = ``;
+      refInputRanges.current.className = '';
       refDownRange.current.hidden = false;
       refUpRange.current.hidden = true;
     }
@@ -140,18 +135,18 @@ export default function MySearch3() {
         hidden={isHidden}
       >
         <input
-          type='number'
+          type="number"
           value={search}
           onChange={changeSearchHandlerRangeStart}
-          placeholder='from'
+          placeholder="from"
           className={`${classes.inputRange}`}
         />
         <span>—</span>
         <input
-          type='number'
+          type="number"
           value={search2}
           onChange={changeSearchHandlerRangeEnd}
-          placeholder='before'
+          placeholder="before"
           className={`${classes.inputRange}`}
         />
       </div>

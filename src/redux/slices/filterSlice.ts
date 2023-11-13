@@ -1,5 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import { initState } from '../initState';
+import { initState } from '../initState.ts';
 
 export const filterSlice = createSlice({
   name: 'filter',
@@ -31,10 +32,23 @@ export const {
   setCurrentPage,
 } = filterSlice.actions;
 
-export const getSearchSelector = (state) => state.filter.search;
-export const getSearchRangeSelector = (state) => state.filter.rangeStart;
-export const getSearchRangeSelectorEnd = (state) => state.filter.rangeEnd;
-export const getSearchAuthorIdSelector = (state) => state.filter.authorId;
-export const getCurrentPage = (state) => state.filter.currentPage;
+export const getSearchSelector = (state: { filter: string }) =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  state.filter.search;
+
+export const getSearchRangeSelector = (state: {
+  filter: { rangeStart: string };
+}) => state.filter.rangeStart;
+export const getSearchRangeSelectorEnd = (state: {
+  filter: { rangeEnd: string };
+}) => state.filter.rangeEnd;
+export const getSearchAuthorIdSelector = (state: {
+  filter: { authorId: string };
+}) => state.filter.authorId;
+export const getCurrentPage = (state: {
+  filter: {
+    currentPage: string;
+  };
+}) => state.filter.currentPage;
 
 export const filterReducer = filterSlice.reducer;

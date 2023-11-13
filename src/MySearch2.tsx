@@ -1,13 +1,13 @@
-import AuthorsSearchFilter from './features/AuthorsSearchFilter';
-import LocationsSearchFilter from './features/LocationsSearchFilter';
+/* eslint-disable import/prefer-default-export */
+import AuthorsSearchFilter from './features/AuthorsSearchFilter.tsx';
+import LocationsSearchFilter from './features/LocationsSearchFilter.tsx';
 import './MySearch2.css';
 
-export const MySearch2 = () => {
-
+export function MySearch2() {
   return (
     <>
       <AuthorsSearchFilter />
       <LocationsSearchFilter />
     </>
   );
-};
+}

@@ -1,16 +1,15 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { useDebounce } from '../hooks/useDebounce';
+import { useDebounce } from '../hooks/useDebounce.ts';
 import {
   changeSearchFilter,
   getSearchRangeSelector,
   getSearchRangeSelectorEnd,
-} from '../redux/slices/filterSlice';
+} from '../redux/slices/filterSlice.ts';
 import classes from '../styles.module.css';
 
 function InputSearch() {
-
   const isName = 'Name';
   const rangeStart = useSelector(getSearchRangeSelector);
   const rangeEnd = useSelector(getSearchRangeSelectorEnd);
@@ -31,13 +30,11 @@ function InputSearch() {
     const newSearchValue = input.value;
     setSearch(newSearchValue);
 
-    setSearchParams(() => {
-      return {
-        q: newSearchValue,
-        created_gte: rangeStart ?? '0',
-        created_lte: rangeEnd ?? '2023',
-      };
-    });
+    setSearchParams(() => ({
+      q: newSearchValue,
+      created_gte: rangeStart ?? '0',
+      created_lte: rangeEnd ?? '2023',
+    }));
   };
 
   useEffect(() => {
@@ -48,7 +45,7 @@ function InputSearch() {
     <div className={`${classes.flexContainerForInput}`}>
       <div className={`${classes.middleFlexElement}`}>
         <input
-          type='search'
+          type="search"
           value={search}
           onChange={changeSearchHandler}
           placeholder={isName}

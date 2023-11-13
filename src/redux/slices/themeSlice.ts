@@ -1,5 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import { initState } from '../initState';
+import { initState } from '../initState.ts';
 
 export const themeSlice = createSlice({
   name: 'theme',
@@ -13,6 +14,10 @@ export const themeSlice = createSlice({
 
 export const { set } = themeSlice.actions;
 
-export const getCurrentTheme = (state) => state.theme.currentTheme;
+export const getCurrentTheme = (state: {
+  theme: {
+    currentTheme: string;
+  };
+}) => state.theme.currentTheme;
 
 export const themeReducer = themeSlice.reducer;
