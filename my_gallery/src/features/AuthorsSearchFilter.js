@@ -14,8 +14,8 @@ var _axios = _interopRequireDefault(require("axios"));
 var _themeSlice = require("../redux/slices/themeSlice.ts");
 var _filterSlice = require("../redux/slices/filterSlice.ts");
 var _utils = require("../utils.ts");
-var _stylesModule = _interopRequireDefault(require("../styles.module.css"));
-require("../MySearch2.css");
+var _stylesModule = _interopRequireDefault(require("../styles.module.scss"));
+require("../MySearch2.scss");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }

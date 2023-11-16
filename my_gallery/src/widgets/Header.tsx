@@ -1,7 +1,7 @@
 import Avatar from '../features/Avatar.tsx';
 import ThemeHandler from '../features/ThemeHandler.tsx';
-import classes from '../styles.module.css';
-import '../App.css';
+import classes from '../styles.module.scss';
+import '../App.scss';
 
 function Header() {
   return (

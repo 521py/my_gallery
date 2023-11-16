@@ -9,7 +9,7 @@ var _reactRedux = require("react-redux");
 var _axios = _interopRequireDefault(require("axios"));
 var _filterSlice = require("./redux/slices/filterSlice.ts");
 var _utils = require("./utils.ts");
-var _stylesModule = _interopRequireDefault(require("./styles.module.css"));
+var _stylesModule = _interopRequireDefault(require("./styles.module.scss"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 /* eslint-disable import/prefer-default-export */
 
@@ -44,6 +44,8 @@ function Paints() {
     return /*#__PURE__*/React.createElement("p", null, "Error from search req is", error.toString());
   }
   return /*#__PURE__*/React.createElement("div", {
+    className: "".concat(_stylesModule.default.PaintsWrapper)
+  }, /*#__PURE__*/React.createElement("div", {
     className: "".concat(_stylesModule.default.Paints)
   }, paints === null || paints === void 0 ? void 0 : paints.map(function (paint) {
     return /*#__PURE__*/React.createElement("div", {
@@ -57,5 +59,5 @@ function Paints() {
     }), /*#__PURE__*/React.createElement("div", {
       className: "".concat(_stylesModule.default.intro)
     }, /*#__PURE__*/React.createElement("h2", null, paint.name), /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("strong", null, "AuthorId: "), paint.authorId, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("strong", null, "Created: "), paint.created, /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("strong", null, "LocationId: "), paint.locationId)));
-  }));
+  })));
 }

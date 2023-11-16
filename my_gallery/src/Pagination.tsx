@@ -15,8 +15,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { getCurrentPage, setCurrentPage } from './redux/slices/filterSlice.ts';
 import { getCurrentTheme } from './redux/slices/themeSlice.ts';
-import classes from './styles.module.css';
-import './Pagination.css';
+import classes from './styles.module.scss';
+import './Pagination.scss';
 
 export function Pagination() {
   const theme = useSelector(getCurrentTheme);

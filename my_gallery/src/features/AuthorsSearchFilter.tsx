@@ -14,8 +14,8 @@ import axios from 'axios';
 import { getCurrentTheme } from '../redux/slices/themeSlice.ts';
 import { getSearchAuthorIdSelector } from '../redux/slices/filterSlice.ts';
 import { getQueryKeyForAuthorId } from '../utils.ts';
-import classes from '../styles.module.css';
-import '../MySearch2.css';
+import classes from '../styles.module.scss';
+import '../MySearch2.scss';
 
 function AuthorsSearchFilter() {
   const theme = useSelector(getCurrentTheme);

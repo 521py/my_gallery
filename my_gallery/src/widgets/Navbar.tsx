@@ -1,4 +1,4 @@
-import classes from '../styles.module.css';
+import classes from '../styles.module.scss';
 import MySearch from '../MySearch.tsx';
 import { MySearch2 } from '../MySearch2.tsx';
 import MySearch3 from '../MySearch3.tsx';

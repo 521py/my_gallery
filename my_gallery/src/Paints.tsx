@@ -9,7 +9,7 @@ import {
   getSearchSelector,
 } from './redux/slices/filterSlice.ts';
 import { getQueryKey } from './utils.ts';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 export function Paints() {
   const search = useSelector(getSearchSelector);
@@ -55,32 +55,34 @@ export function Paints() {
   }
 
   return (
-    <div className={`${classes.Paints}`}>
-      {paints?.map((paint) => (
-        <div className={`${classes.card}`} key={paint.id}>
-          <img
-            src={`https://test-front.framework.team${paint.imageUrl}`}
-            alt={paint.name}
-            width="300px"
-            className={`${classes.cardImg}`}
-          />
-          <div className={`${classes.intro}`}>
-            <h2>{paint.name}</h2>
-            <p>
-              <strong>AuthorId: </strong>
-              {paint.authorId}
-              <br />
-              <br />
-              <strong>Created: </strong>
-              {paint.created}
-              <br />
-              <br />
-              <strong>LocationId: </strong>
-              {paint.locationId}
-            </p>
+    <div className={`${classes.PaintsWrapper}`}>
+      <div className={`${classes.Paints}`}>
+        {paints?.map((paint) => (
+          <div className={`${classes.card}`} key={paint.id}>
+            <img
+              src={`https://test-front.framework.team${paint.imageUrl}`}
+              alt={paint.name}
+              width="300px"
+              className={`${classes.cardImg}`}
+            />
+            <div className={`${classes.intro}`}>
+              <h2>{paint.name}</h2>
+              <p>
+                <strong>AuthorId: </strong>
+                {paint.authorId}
+                <br />
+                <br />
+                <strong>Created: </strong>
+                {paint.created}
+                <br />
+                <br />
+                <strong>LocationId: </strong>
+                {paint.locationId}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

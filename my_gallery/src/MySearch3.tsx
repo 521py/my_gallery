@@ -12,7 +12,7 @@ import {
   getSearchRangeSelectorEnd,
   getSearchSelector,
 } from './redux/slices/filterSlice.ts';
-import classes from './styles.module.css';
+import classes from './styles.module.scss';
 
 export default function MySearch3() {
   const isCreated = 'Created';

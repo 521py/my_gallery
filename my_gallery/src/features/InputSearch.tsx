@@ -7,7 +7,7 @@ import {
   getSearchRangeSelector,
   getSearchRangeSelectorEnd,
 } from '../redux/slices/filterSlice.ts';
-import classes from '../styles.module.css';
+import classes from '../styles.module.scss';
 
 function InputSearch() {
   const isName = 'Name';

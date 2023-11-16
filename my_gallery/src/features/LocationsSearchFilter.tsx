@@ -12,8 +12,8 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { getCurrentTheme } from '../redux/slices/themeSlice.ts';
-import classes from '../styles.module.css';
-import '../MySearch2.css';
+import classes from '../styles.module.scss';
+import '../MySearch2.scss';
 
 function LocationsSearchFilter() {
   const theme = useSelector(getCurrentTheme);
