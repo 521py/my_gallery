@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import MainGalleryPage from '../pages/MainGalleryPage';
+import MainGalleryPage from '../pages/MainGalleryPage.tsx';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -10,7 +10,6 @@ const queryClient = new QueryClient({
 });
 
 function AppLayer() {
-
   return (
     <QueryClientProvider client={queryClient}>
       <MainGalleryPage />
