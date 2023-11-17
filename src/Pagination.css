@@ -112,27 +112,27 @@
 }
 
 .activePaginate {
+  padding: 7px 0;
   background-color: black;
   color: white;
-  line-height: 34px;
 }
 
 .activePaginate:hover {
+  padding: 7px 0;
   background-color: black;
   color: white;
-  line-height: 34px;
 }
 
 .activePaginateDark {
+  padding: 7px 0;
   background-color: white;
   color: black;
-  line-height: 34px;
 }
 
 .activePaginateDark:hover {
+  padding: 7px 0;
   background-color: white;
   color: black;
-  line-height: 34px;
 }
 
 .allPagesPaginate {
@@ -169,13 +169,11 @@
 }
 
 .disabledPaginate {
-  line-height: 34px;
   color: whitesmoke !important;
   border: none !important;
 }
 
 .disabledPaginateDark {
-  line-height: 34px;
   color: whitesmoke;
 }
 
